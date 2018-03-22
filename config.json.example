@@ -1,0 +1,6 @@
+{
+    "api": "xxxxx",
+    "webhook": "something.com",
+    "hookport": 80,
+    "hookpassword": "alphanumeric"
+}
