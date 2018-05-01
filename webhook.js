@@ -40,10 +40,14 @@ function webhook() {
     }
     if (payload.eventId == 'mediaItem.showOver') {
       that.emit('showOver', payload);
+      that.emit('end' + payload.payload.id, payload);
+
       console.log("Show now over, id " + payload.payload.id);
     }
     if (payload.eventId == 'mediaItem.notLive') {
       that.emit('notLive', payload);
+      that.emit('end' + payload.payload.id, payload);
+
       console.log("Media item listed as not live " + payload.payload.id);
     }
     if (payload.eventId == 'mediaItem.vodAvailable') {
