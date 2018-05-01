@@ -38,8 +38,12 @@ function Recorder(url, id) {
         console.error("No url stuff!")
         return
     }
+    var date = "" + Date.now()
+    date = date.slice(5, 10)
 
-    var commandArgs = ["-i", url.url, "-c", "copy", "-bsf:a", "aac_adtstoasc ", "/mnt/volume-lon1-01/autorot/" + url.mediaItem.id + "_" + url.mediaItem.name + ".mp4"]
+    var filename = url.mediaItem.id + "_" + url.mediaItem.name + "_" + date;
+
+    var commandArgs = ["-i", url.url, "-c", "copy", "-bsf:a", "aac_adtstoasc ", "/mnt/volume-lon1-01/autorot/" + filename + ".mp4"]
 
     //ffmpeg -i http://.../playlist.m3u8 -c copy -bsf:a aac_adtstoasc output.mp4
     console.log("starting ffmpeg, " + commandArgs)
